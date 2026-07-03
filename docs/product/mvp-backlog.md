@@ -155,9 +155,9 @@ Role: CI/CD
 Owner: Camila Rocha  
 Assignee: Camila Rocha  
 Priority: P1  
-Status: Blocked  
-Tags: `DOCS`, `DEPLOY`, `GITHUB_PAGES`, `BLOCKED_ACCESS`  
-Dependencies: `OJ-004`, GitHub Pages support for private repository or public repository visibility  
+Status: Done  
+Tags: `DOCS`, `DEPLOY`, `GITHUB_PAGES`  
+Dependencies: `OJ-004`  
 KB links: `README.md`
 
 Description:
@@ -197,9 +197,9 @@ Current execution note:
 
 - Client selected GitHub Pages on 2026-07-03.
 - Workflow evidence prepared: `.github/workflows/pages.yml`.
-- Current blocker: GitHub API returned `Your current plan does not support GitHub Pages for this repository` while the repository is private.
-- Required client decision: make `editorastudiowriter/openjira-docs` public, upgrade/enable a plan that supports private Pages, or choose another static host.
-- Expected published URL after unblock: `https://editorastudiowriter.github.io/openjira-docs/`.
+- Repository was made public for docs only; OpenJira application repositories remain private until MVP readiness.
+- GitHub Pages deploy succeeded on 2026-07-03.
+- Published URL: `https://editorastudiowriter.github.io/openjira-docs/`.
 
 ### OJ-006 - Create sprint report template
 

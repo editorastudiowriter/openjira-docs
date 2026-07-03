@@ -9,7 +9,7 @@ Status: active
 
 Sprint state: active  
 Currently being worked: OJ-011, OJ-012, OJ-015, and OJ-019 after TechLead accepted OJ-009 and OJ-010 evidence  
-Blocked cards: OJ-005 - GitHub Pages cannot be enabled for the private repository under the current GitHub plan  
+Blocked cards: none requiring client action after GitHub Pages publication  
 Next card to start: OJ-023 after TechLead accepts OJ-019 evidence
 
 ## Execution Readiness Decision
@@ -41,7 +41,7 @@ Cards in progress after dependency resolution:
 Workflow decision:
 
 - Do not start feature implementation while requirements, architecture, RBAC, API contract, database model, quality gates, and CI/CD baseline remain in `TL Review`.
-- `OJ-005` is technically prepared for GitHub Pages, but remains blocked until the client allows Pages for this private repository, makes the repository public, or selects another static host.
+- `OJ-005` is complete; GitHub Pages is published at `https://editorastudiowriter.github.io/openjira-docs/`.
 
 ## Sprint Goal
 
@@ -92,7 +92,7 @@ Establish the autonomous operating foundation for OpenJira: remote documentation
 
 | Card | Reason | Required action |
 | --- | --- | --- |
-| OJ-005 | GitHub Pages API refused private-repository Pages on current plan | Client decides between public repository, GitHub plan support for private Pages, or alternate static host |
+| None | No client-action blocker remains after GitHub Pages publication | AIA continues internal dependency resolution |
 
 ## Definition Of Done
 
@@ -107,7 +107,7 @@ Establish the autonomous operating foundation for OpenJira: remote documentation
 
 ## Risks
 
-- Remote deploy target is GitHub Pages, but GitHub Pages is blocked for this private repository under the current plan.
+- Remote docs are public through GitHub Pages; application repositories should remain private until the MVP is solid and tested.
 - Backend scaffold may require confirming package manager and NestJS version.
 - ORM decision can block database migration strategy if not resolved in Sprint 000.
 - Feature implementation must not start while requirements, architecture, RBAC, API contract, database model, and quality gates remain in `TL Review`.
