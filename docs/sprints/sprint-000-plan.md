@@ -8,9 +8,9 @@ Status: active
 ## Current Work Status
 
 Sprint state: active  
-Currently being worked: OJ-007 and OJ-026 are internally unblocked; remaining cards are in dependency review  
-Blocked cards: OJ-005 - Publish docs remotely  
-Next card to start: OJ-008 after TechLead accepts OJ-007 evidence
+Currently being worked: OJ-011, OJ-012, OJ-015, and OJ-019 after TechLead accepted OJ-009 and OJ-010 evidence  
+Blocked cards: OJ-005 - GitHub Pages cannot be enabled for the private repository under the current GitHub plan  
+Next card to start: OJ-023 after TechLead accepts OJ-019 evidence
 
 ## Execution Readiness Decision
 
@@ -20,28 +20,28 @@ The sprint is ready for preparation, grooming, TechLead review, and documentatio
 
 Cards moved out of `TL Review` by internal AIA work:
 
-- `OJ-007` - Map core user journeys. Evidence: `docs/requirements/core-user-journeys.md`.
+- `OJ-007` - Map core user journeys. Evidence accepted by TechLead: `docs/requirements/core-user-journeys.md`.
+- `OJ-008` - Define functional requirements by domain. Evidence accepted by TechLead: `docs/requirements/functional-requirements-matrix.md`.
+- `OJ-009` - Define acceptance criteria for MVP flows. Evidence accepted by TechLead: `docs/quality/mvp-acceptance-criteria.md`.
+- `OJ-010` - Define technical architecture. Evidence accepted by TechLead: `docs/architecture/technical-architecture.md`.
 - `OJ-026` - Create evidence templates. Evidence: `docs/evidence/index.md`.
 
-Cards that must remain in `TL Review` until dependencies are resolved:
+Cards in progress after dependency resolution:
 
-- `OJ-008` can start after TechLead accepts `OJ-007` evidence.
-- `OJ-009` waits for `OJ-007` and `OJ-008`.
-- `OJ-010` waits for `OJ-008`.
-- `OJ-011` waits for `OJ-010`.
-- `OJ-012` waits for `OJ-010` and `OJ-008`.
+- `OJ-011` is unblocked and in progress after TechLead accepted `OJ-010` evidence.
+- `OJ-012` is unblocked and in progress after TechLead accepted `OJ-010` and `OJ-008` evidence.
+- `OJ-015` is unblocked and in progress after TechLead accepted `OJ-010` evidence.
+- `OJ-019` is unblocked and in progress after TechLead accepted `OJ-009` evidence.
 - `OJ-013` waits for `OJ-011` and `OJ-012`.
 - `OJ-014` waits for `OJ-013`.
-- `OJ-015` waits for `OJ-010`.
 - `OJ-BE-001` waits for `OJ-007`, `OJ-008`, `OJ-010`, and `OJ-013`.
-- `OJ-019` waits for `OJ-009`.
 - `OJ-020` waits for `OJ-010`, `OJ-014`, `OJ-019`, and `OJ-023`.
 - `OJ-023` waits for `OJ-009` and `OJ-019`.
 
 Workflow decision:
 
 - Do not start feature implementation while requirements, architecture, RBAC, API contract, database model, quality gates, and CI/CD baseline remain in `TL Review`.
-- Keep `OJ-005` blocked until Mariana requests and Infra provides hosting target, repository access, and deployment secrets.
+- `OJ-005` is technically prepared for GitHub Pages, but remains blocked until the client allows Pages for this private repository, makes the repository public, or selects another static host.
 
 ## Sprint Goal
 
@@ -73,17 +73,17 @@ Establish the autonomous operating foundation for OpenJira: remote documentation
 | OJ-003 | Define autonomous AIA operating model | Mariana Costa | P0 | Done |
 | OJ-004 | Create openjira-docs portal | Sofia Mendes | P0 | Done |
 | OJ-006 | Create sprint report template | Sofia Mendes | P0 | Done |
-| OJ-007 | Map core user journeys | Helena Duarte | P0 | Ready for Sprint |
-| OJ-008 | Define functional requirements by domain | Helena Duarte | P0 | TL Review |
-| OJ-009 | Define acceptance criteria for MVP flows | Renata Barbosa | P0 | TL Review |
-| OJ-010 | Define technical architecture | Rafael Almeida | P0 | TL Review |
-| OJ-011 | Choose ORM and migration strategy | Rafael Almeida | P0 | TL Review |
-| OJ-012 | Define auth and RBAC strategy | Gabriel Martins | P0 | TL Review |
+| OJ-007 | Map core user journeys | Helena Duarte | P0 | Done |
+| OJ-008 | Define functional requirements by domain | Helena Duarte | P0 | Done |
+| OJ-009 | Define acceptance criteria for MVP flows | Renata Barbosa | P0 | Done |
+| OJ-010 | Define technical architecture | Rafael Almeida | P0 | Done |
+| OJ-011 | Choose ORM and migration strategy | Rafael Almeida | P0 | In Development |
+| OJ-012 | Define auth and RBAC strategy | Gabriel Martins | P0 | In Development |
 | OJ-BE-001 | Define REST API contract for MVP | Gabriel Martins | P0 | TL Review |
 | OJ-013 | Design initial PostgreSQL model | Eduardo Ribeiro | P0 | TL Review |
 | OJ-014 | Define local database strategy | Eduardo Ribeiro | P0 | TL Review |
-| OJ-015 | Scaffold openjira-server | Gabriel Martins | P0 | TL Review |
-| OJ-019 | Define quality gates | Renata Barbosa | P0 | TL Review |
+| OJ-015 | Scaffold openjira-server | Gabriel Martins | P0 | In Development |
+| OJ-019 | Define quality gates | Renata Barbosa | P0 | In Development |
 | OJ-020 | Define CI/CD baseline | Camila Rocha | P0 | TL Review |
 | OJ-023 | Define test pyramid and coverage policy | Bruno Teixeira | P0 | TL Review |
 | OJ-026 | Create evidence templates | Sofia Mendes | P0 | Ready for Sprint |
@@ -92,7 +92,7 @@ Establish the autonomous operating foundation for OpenJira: remote documentation
 
 | Card | Reason | Required action |
 | --- | --- | --- |
-| OJ-005 | Depends on hosting target, repository access, and deployment secrets | Mariana requests access through Infra; TechLead reviews card before execution |
+| OJ-005 | GitHub Pages API refused private-repository Pages on current plan | Client decides between public repository, GitHub plan support for private Pages, or alternate static host |
 
 ## Definition Of Done
 
@@ -107,7 +107,7 @@ Establish the autonomous operating foundation for OpenJira: remote documentation
 
 ## Risks
 
-- Remote deploy cannot be completed until a Git remote, hosting target, repository access, and deployment secrets are selected.
+- Remote deploy target is GitHub Pages, but GitHub Pages is blocked for this private repository under the current plan.
 - Backend scaffold may require confirming package manager and NestJS version.
 - ORM decision can block database migration strategy if not resolved in Sprint 000.
 - Feature implementation must not start while requirements, architecture, RBAC, API contract, database model, and quality gates remain in `TL Review`.

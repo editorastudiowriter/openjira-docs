@@ -3,7 +3,7 @@
 Owner: Mariana Costa  
 Agency: AIA - Artificial Intelligence Agency  
 Status: active  
-Last updated: 2026-07-01  
+Last updated: 2026-07-02  
 Workflow: `docs/operations/aia-delivery-workflow.md`
 
 ## Operating Rule
@@ -156,13 +156,13 @@ Owner: Camila Rocha
 Assignee: Camila Rocha  
 Priority: P1  
 Status: Blocked  
-Tags: `DOCS`, `DEPLOY`, `INFRA`, `BLOCKED_ACCESS`  
-Dependencies: `OJ-004`, hosting target, repository access, deployment secrets  
+Tags: `DOCS`, `DEPLOY`, `GITHUB_PAGES`, `BLOCKED_ACCESS`  
+Dependencies: `OJ-004`, GitHub Pages support for private repository or public repository visibility  
 KB links: `README.md`
 
 Description:
 
-Publish `openjira-docs` as a static site using Cloudflare Pages as the preferred target or GitHub Pages as fallback.
+Publish `openjira-docs` as a static site using GitHub Pages and GitHub Actions.
 
 Business value:
 
@@ -170,12 +170,12 @@ Makes AIA documentation accessible remotely and independently from the OpenJira 
 
 Acceptance criteria:
 
-- Hosting target is selected.
+- Hosting target is GitHub Pages.
 - Build command is `npm run build`.
 - Output directory is `dist`.
 - Remote URL is recorded in docs.
-- Deployment is automated.
-- Preview deployment exists for branches when supported.
+- Deployment is automated from the `main` branch.
+- `development` remains the evolution branch.
 
 Test expectations:
 
@@ -192,6 +192,14 @@ Documentation expectations:
 
 - README includes final deployment target and URL.
 - Sprint report records deployment status.
+
+Current execution note:
+
+- Client selected GitHub Pages on 2026-07-03.
+- Workflow evidence prepared: `.github/workflows/pages.yml`.
+- Current blocker: GitHub API returned `Your current plan does not support GitHub Pages for this repository` while the repository is private.
+- Required client decision: make `editorastudiowriter/openjira-docs` public, upgrade/enable a plan that supports private Pages, or choose another static host.
+- Expected published URL after unblock: `https://editorastudiowriter.github.io/openjira-docs/`.
 
 ### OJ-006 - Create sprint report template
 
@@ -259,7 +267,7 @@ Role: Requirements
 Owner: Helena Duarte  
 Assignee: Helena Duarte  
 Priority: P0  
-Status: Ready for Sprint  
+Status: Done  
 Tags: `REQUIREMENTS`, `DISCOVERY`  
 Dependencies: `OJ-002R`
 Evidence: `docs/requirements/core-user-journeys.md`
@@ -298,9 +306,10 @@ Role: Requirements
 Owner: Helena Duarte  
 Assignee: Helena Duarte  
 Priority: P0  
-Status: TL Review  
+Status: Done  
 Tags: `REQUIREMENTS`, `MVP`  
 Dependencies: `OJ-007`
+Evidence: `docs/requirements/functional-requirements-matrix.md`
 
 Description:
 
@@ -325,13 +334,18 @@ Documentation expectations:
 
 - Publish requirements matrix in Markdown.
 
+Current execution note:
+
+- Started after TechLead accepted `OJ-007` evidence on 2026-07-02.
+- Evidence accepted by TechLead on 2026-07-02: `docs/requirements/functional-requirements-matrix.md`.
+
 ### OJ-009 - Define acceptance criteria for MVP flows
 
 Role: Quality Analyst  
 Owner: Renata Barbosa  
 Assignee: Renata Barbosa  
 Priority: P0  
-Status: TL Review  
+Status: Done  
 Tags: `QA`, `ACCEPTANCE`, `MVP`  
 Dependencies: `OJ-007`, `OJ-008`
 
@@ -358,6 +372,11 @@ Documentation expectations:
 
 - Publish acceptance criteria matrix.
 
+Current execution note:
+
+- Started after TechLead accepted `OJ-008` evidence on 2026-07-02.
+- Evidence accepted by TechLead on 2026-07-02: `docs/quality/mvp-acceptance-criteria.md`.
+
 ## Epic OJ-E04: Architecture And Technical Decisions
 
 ### OJ-010 - Define technical architecture
@@ -366,7 +385,7 @@ Role: Tech Lead
 Owner: Rafael Almeida  
 Assignee: Rafael Almeida  
 Priority: P0  
-Status: TL Review  
+Status: Done  
 Tags: `ARCHITECTURE`, `ADR`  
 Dependencies: `OJ-008`
 
@@ -395,13 +414,18 @@ Documentation expectations:
 
 - Include Mermaid context/container diagrams.
 
+Current execution note:
+
+- Started after TechLead accepted `OJ-008` evidence on 2026-07-02.
+- Evidence accepted by TechLead on 2026-07-02: `docs/architecture/technical-architecture.md`.
+
 ### OJ-011 - Choose ORM and migration strategy
 
 Role: Tech Lead  
 Owner: Rafael Almeida  
 Assignee: Rafael Almeida  
 Priority: P0  
-Status: TL Review  
+Status: In Development  
 Tags: `ARCHITECTURE`, `DATABASE`, `ADR`  
 Dependencies: `OJ-010`
 
@@ -417,13 +441,18 @@ Acceptance criteria:
 - Rollback and drift handling are documented.
 - Impact on NestJS modules and testing is documented.
 
+Current execution note:
+
+- Started after TechLead accepted `OJ-010` evidence on 2026-07-02.
+- Expected evidence: `docs/architecture/orm-migration-strategy.md`.
+
 ### OJ-012 - Define auth and RBAC strategy
 
 Role: Backend  
 Owner: Gabriel Martins  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: TL Review  
+Status: In Development  
 Tags: `AUTH`, `RBAC`, `SECURITY`  
 Dependencies: `OJ-010`, `OJ-008`
 
@@ -446,6 +475,11 @@ QA expectations:
 Documentation expectations:
 
 - Publish RBAC matrix.
+
+Current execution note:
+
+- Started after TechLead accepted `OJ-010` and `OJ-008` evidence on 2026-07-02.
+- Expected evidence: `docs/architecture/auth-rbac-strategy.md`.
 
 ### OJ-BE-001 - Define REST API contract for MVP
 
@@ -603,7 +637,7 @@ Role: Backend
 Owner: Gabriel Martins  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: TL Review  
+Status: In Development  
 Tags: `BACKEND`, `NESTJS`, `SETUP`  
 Dependencies: `OJ-010`
 
@@ -617,6 +651,11 @@ Acceptance criteria:
 - TypeScript build passes.
 - Lint passes.
 - Health endpoint exists.
+
+Current execution note:
+
+- Started after TechLead accepted `OJ-010` evidence on 2026-07-02.
+- Expected evidence: backend scaffold at `~/projects/javascript/nestjs/openjira-server` and documentation update in `openjira-docs`.
 
 ### OJ-016 - Implement backend configuration module
 
@@ -1014,7 +1053,7 @@ Role: Quality Analyst
 Owner: Renata Barbosa  
 Assignee: Renata Barbosa  
 Priority: P0  
-Status: TL Review  
+Status: In Development  
 Tags: `QA`, `QUALITY_GATE`  
 Dependencies: `OJ-009`
 
@@ -1028,6 +1067,11 @@ Acceptance criteria:
 - Minimum test expectations are listed.
 - Release blocking criteria are documented.
 - Thresholds exist for lint, typecheck, build, tests, coverage, dependency audit, and SonarQube.
+
+Current execution note:
+
+- Started after TechLead accepted `OJ-009` evidence on 2026-07-02.
+- Expected evidence: `docs/quality/quality-gates.md`.
 
 ### OJ-020 - Define CI/CD baseline
 

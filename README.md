@@ -4,18 +4,18 @@ Portal de documentação remota da AIA para o produto OpenJira.
 
 ## Recomendação de acesso remoto
 
-A recomendação principal é publicar este projeto como site estático no Cloudflare Pages.
+A decisão atual é publicar este projeto como site estático no GitHub Pages via GitHub Actions.
 
 Motivos:
 
-- Deploy simples a partir de repositório Git.
-- Preview automático por branch.
-- CDN global.
-- Domínio customizado.
+- Usa o repositório GitHub já disponível.
+- Remove o bloqueio de conta externa, domínio customizado e secrets de terceiros.
+- Requer que o repositório permita GitHub Pages; no plano atual, Pages para este repositório privado foi recusado pela API do GitHub.
+- Publica automaticamente a branch `main` como produção quando Pages estiver habilitado.
+- Mantém `development` como branch de evolução.
 - Não exige backend, banco ou servidor próprio para leitura dos documentos.
-- Bom encaixe para uma wiki operacional versionada.
 
-Alternativa aceitável: GitHub Pages via GitHub Actions.
+Cloudflare Pages continua como alternativa futura para domínio customizado e previews avançados.
 
 ## Stack
 
@@ -39,12 +39,15 @@ npm run build
 
 O resultado fica em `dist/`.
 
-## Configuração sugerida no Cloudflare Pages
+## Publicação no GitHub Pages
 
-- Framework preset: Vite
+- Workflow: `.github/workflows/pages.yml`
+- Branch de produção: `main`
+- Branch de evolução: `development`
 - Build command: `npm run build`
 - Build output directory: `dist`
-- Node version: LTS atual
+- URL esperada após desbloqueio do Pages: `https://editorastudiowriter.github.io/openjira-docs/`
+- Bloqueio atual: GitHub retornou `Your current plan does not support GitHub Pages for this repository` para o repositório privado.
 
 ## Governança AIA
 
@@ -65,7 +68,7 @@ Fonte principal:
 - Roadmap Sprint 003: `docs/sprints/sprint-003-plan.md`
 - Roadmap Sprint 004: `docs/sprints/sprint-004-plan.md`
 
-Regra operacional: cards novos entram em `TL Review` e só podem ser planejados para execução depois de aprovação do TechLead. Cards bloqueados por acesso, hosting, repository access, deployment secrets ou SonarQube devem permanecer explicitamente bloqueados até a Infra resolver a dependência por solicitação da Mariana.
+Regra operacional: cards novos entram em `TL Review` e só podem ser planejados para execução depois de aprovação do TechLead. Cards bloqueados por acesso externo ou SonarQube devem permanecer explicitamente bloqueados até Infra ou gestão resolverem a dependência. O bloqueio de documentação remota está tecnicamente preparado com GitHub Pages, mas depende de liberar Pages para este repositório privado ou tornar o repositório público.
 
 O solicitante deve receber um relatório consolidado ao final de cada sprint com:
 
