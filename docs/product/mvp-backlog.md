@@ -425,7 +425,7 @@ Role: Tech Lead
 Owner: Rafael Almeida  
 Assignee: Rafael Almeida  
 Priority: P0  
-Status: In Development  
+Status: TL Review  
 Tags: `ARCHITECTURE`, `DATABASE`, `ADR`  
 Dependencies: `OJ-010`
 
@@ -443,8 +443,9 @@ Acceptance criteria:
 
 Current execution note:
 
-- Started after TechLead accepted `OJ-010` evidence on 2026-07-02.
-- Expected evidence: `docs/architecture/orm-migration-strategy.md`.
+- Evidence completed on 2026-07-03: `docs/architecture/orm-migration-strategy.md`.
+- Recommendation: Prisma with PostgreSQL, versioned migrations, forward-fix rollback, drift validation, and NestJS repository boundaries.
+- Ready for TechLead review.
 
 ### OJ-012 - Define auth and RBAC strategy
 
@@ -452,7 +453,7 @@ Role: Backend
 Owner: Gabriel Martins  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: In Development  
+Status: TL Review  
 Tags: `AUTH`, `RBAC`, `SECURITY`  
 Dependencies: `OJ-010`, `OJ-008`
 
@@ -478,8 +479,9 @@ Documentation expectations:
 
 Current execution note:
 
-- Started after TechLead accepted `OJ-010` and `OJ-008` evidence on 2026-07-02.
-- Expected evidence: `docs/architecture/auth-rbac-strategy.md`.
+- Evidence completed on 2026-07-03: `docs/architecture/auth-rbac-strategy.md`.
+- Decision: backend-enforced auth/RBAC with secure HttpOnly session cookies, organization/project scope, and roles `org_admin`, `project_admin`, `member`, and `viewer`.
+- Ready for TechLead review.
 
 ### OJ-BE-001 - Define REST API contract for MVP
 
@@ -637,7 +639,7 @@ Role: Backend
 Owner: Gabriel Martins  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: In Development  
+Status: Done  
 Tags: `BACKEND`, `NESTJS`, `SETUP`  
 Dependencies: `OJ-010`
 
@@ -654,8 +656,11 @@ Acceptance criteria:
 
 Current execution note:
 
-- Started after TechLead accepted `OJ-010` evidence on 2026-07-02.
-- Expected evidence: backend scaffold at `~/projects/javascript/nestjs/openjira-server` and documentation update in `openjira-docs`.
+- Backend scaffold created on 2026-07-03 at `~/projects/javascript/nestjs/openjira-server`.
+- Evidence: `docs/architecture/backend-scaffold-evidence.md`.
+- Health endpoint available at `GET /api/health`.
+- Validation passed: `npm run lint`, `npm run build`, `npm audit --omit=dev --audit-level=high`, and health endpoint response `{"status":"ok","service":"openjira-server"}`.
+- Runtime adapter uses Fastify to avoid vulnerable `multer` dependency from the Express platform adapter.
 
 ### OJ-016 - Implement backend configuration module
 
@@ -1053,7 +1058,7 @@ Role: Quality Analyst
 Owner: Renata Barbosa  
 Assignee: Renata Barbosa  
 Priority: P0  
-Status: In Development  
+Status: TL Review  
 Tags: `QA`, `QUALITY_GATE`  
 Dependencies: `OJ-009`
 
@@ -1070,8 +1075,9 @@ Acceptance criteria:
 
 Current execution note:
 
-- Started after TechLead accepted `OJ-009` evidence on 2026-07-02.
-- Expected evidence: `docs/quality/quality-gates.md`.
+- Evidence completed on 2026-07-03: `docs/quality/quality-gates.md`.
+- Gates define required checks, blockers, thresholds, evidence rules, coverage baseline, dependency audit, and SonarQube policy.
+- Ready for TechLead review.
 
 ### OJ-020 - Define CI/CD baseline
 

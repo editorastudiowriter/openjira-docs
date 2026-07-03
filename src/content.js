@@ -119,8 +119,8 @@ export const docs = [
       'Sprint ativa: docs/sprints/sprint-000-plan.md.',
       'Roadmap: docs/sprints/sprint-001-plan.md até docs/sprints/sprint-004-plan.md.',
       'Template de relatório: docs/sprints/report-template.md.',
-      'Status atual: OJ-005 foi publicado no GitHub Pages; OJ-011, OJ-012, OJ-015 e OJ-019 seguem em desenvolvimento.',
-      'Próximo foco autônomo: concluir OJ-011, OJ-012, OJ-015 e OJ-019 para destravar a próxima cadeia técnica.',
+      'Status atual: OJ-015 foi concluído; OJ-011, OJ-012 e OJ-019 estão prontos para TechLead review.',
+      'Próximo foco autônomo: TechLead revisar OJ-011, OJ-012 e OJ-019 para liberar OJ-013 e OJ-023.',
     ],
   },
 ]
@@ -272,7 +272,7 @@ const baseSprintCards = [
     owner: 'Rafael Almeida',
     role: 'Tech Lead',
     priority: 'P0',
-    status: 'in-development',
+    status: 'tl-review',
   },
   {
     id: 'OJ-012',
@@ -280,7 +280,7 @@ const baseSprintCards = [
     owner: 'Gabriel Martins',
     role: 'Backend',
     priority: 'P0',
-    status: 'in-development',
+    status: 'tl-review',
   },
   {
     id: 'OJ-013',
@@ -304,7 +304,7 @@ const baseSprintCards = [
     owner: 'Gabriel Martins',
     role: 'Backend NestJS',
     priority: 'P0',
-    status: 'in-development',
+    status: 'done',
   },
   {
     id: 'OJ-BE-001',
@@ -320,7 +320,7 @@ const baseSprintCards = [
     owner: 'Renata Barbosa',
     role: 'Quality Gate/QA',
     priority: 'P0',
-    status: 'in-development',
+    status: 'tl-review',
   },
   {
     id: 'OJ-020',
