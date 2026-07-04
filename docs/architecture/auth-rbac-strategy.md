@@ -23,6 +23,21 @@ Authorization is role-based with resource scoping by organization and project me
 - Invalid credentials return a generic error.
 - Logout invalidates active server-side session or refresh state when present.
 
+## Session Hardening And CSRF
+
+Because the MVP uses secure HttpOnly cookies, every mutable request must be protected against cross-site request forgery and session abuse.
+
+Required policy:
+
+- Cookies use `HttpOnly`, `Secure`, `SameSite=Lax`, scoped path, and environment-specific domain configuration.
+- CORS allows only approved frontend origins; wildcard origins are forbidden when credentials are enabled.
+- Mutable methods (`POST`, `PUT`, `PATCH`, `DELETE`) require CSRF protection through a server-issued token or equivalent double-submit/session-bound mechanism.
+- Sessions have absolute expiration, idle timeout, rotation after login/refresh, and invalidation on logout.
+- Refresh/session state must be stored server-side or in a revocable persistence model before production MVP.
+- Failed CSRF or session validation returns an authorization-safe error and performs no mutation.
+
+This hardening is mandatory before `OJ-AUTH-001` starts implementation.
+
 ## Roles
 
 | Role | Scope | Summary |
@@ -98,6 +113,6 @@ flowchart TD
   Permission -. fail .-> SafeError
 ```
 
-## Acceptance Result
+## TechLead Review Result
 
-OJ-012 is ready for TechLead review.
+Rafael Almeida approved OJ-012 on 2026-07-03 with one implementation gate: session hardening and CSRF policy must be applied before `OJ-AUTH-001`. OJ-013 is unblocked.

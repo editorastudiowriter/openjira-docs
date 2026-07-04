@@ -95,7 +95,7 @@ export const docs = [
     id: 'quality-gates',
     label: 'Quality gates',
     eyebrow: 'Qualidade',
-    title: 'Quality gates em definição na Sprint 000',
+    title: 'Quality gates aprovados na Sprint 000',
     summary:
       'A política final depende da aprovação do card OJ-019, mas o workflow já exige validação objetiva antes de considerar uma entrega pronta.',
     items: [
@@ -111,7 +111,7 @@ export const docs = [
     id: 'task-board',
     label: 'Tasks',
     eyebrow: 'Backlog',
-    title: 'Backlog MVP e Sprint 000 ativos',
+    title: 'Backlog MVP e Sprint 000 concluídos',
     summary:
       'A AIA reestruturou o backlog usando o card model obrigatório. A SPR-000 está ativa para grooming e TechLead review, mas ainda não está pronta para execução ampla.',
     items: [
@@ -119,8 +119,8 @@ export const docs = [
       'Sprint ativa: docs/sprints/sprint-000-plan.md.',
       'Roadmap: docs/sprints/sprint-001-plan.md até docs/sprints/sprint-004-plan.md.',
       'Template de relatório: docs/sprints/report-template.md.',
-      'Status atual: OJ-015 foi concluído; OJ-011, OJ-012 e OJ-019 estão prontos para TechLead review.',
-      'Próximo foco autônomo: TechLead revisar OJ-011, OJ-012 e OJ-019 para liberar OJ-013 e OJ-023.',
+      'Status atual: Sprint-000 concluída; fundação aprovada para planejamento da Sprint 001.',
+      'Próximo foco autônomo: planejar Sprint 001 e agendar OJ-021 quando necessário.',
     ],
   },
 ]
@@ -142,7 +142,7 @@ export const agents = [
 export const sprintStatus = {
   id: 'SPR-000',
   name: 'Foundation And Operating Model',
-  state: 'active',
+  state: 'done',
   startedAt: '2026-07-01',
   reportCadence: 'Relatório ao fim da sprint',
 }
@@ -272,7 +272,7 @@ const baseSprintCards = [
     owner: 'Rafael Almeida',
     role: 'Tech Lead',
     priority: 'P0',
-    status: 'tl-review',
+    status: 'done',
   },
   {
     id: 'OJ-012',
@@ -280,7 +280,7 @@ const baseSprintCards = [
     owner: 'Gabriel Martins',
     role: 'Backend',
     priority: 'P0',
-    status: 'tl-review',
+    status: 'done',
   },
   {
     id: 'OJ-013',
@@ -288,7 +288,7 @@ const baseSprintCards = [
     owner: 'Eduardo Ribeiro',
     role: 'DBA PostgreSQL',
     priority: 'P0',
-    status: 'tl-review',
+    status: 'done',
   },
   {
     id: 'OJ-014',
@@ -296,7 +296,7 @@ const baseSprintCards = [
     owner: 'Eduardo Ribeiro',
     role: 'DBA PostgreSQL',
     priority: 'P0',
-    status: 'tl-review',
+    status: 'done',
   },
   {
     id: 'OJ-015',
@@ -312,7 +312,7 @@ const baseSprintCards = [
     owner: 'Gabriel Martins',
     role: 'Backend',
     priority: 'P0',
-    status: 'tl-review',
+    status: 'done',
   },
   {
     id: 'OJ-019',
@@ -320,7 +320,7 @@ const baseSprintCards = [
     owner: 'Renata Barbosa',
     role: 'Quality Gate/QA',
     priority: 'P0',
-    status: 'tl-review',
+    status: 'done',
   },
   {
     id: 'OJ-020',
@@ -328,7 +328,7 @@ const baseSprintCards = [
     owner: 'Camila Rocha',
     role: 'CI/CD',
     priority: 'P0',
-    status: 'tl-review',
+    status: 'done',
   },
   {
     id: 'OJ-023',
@@ -336,7 +336,7 @@ const baseSprintCards = [
     owner: 'Bruno Teixeira',
     role: 'Test Engineering',
     priority: 'P0',
-    status: 'tl-review',
+    status: 'done',
   },
   {
     id: 'OJ-026',
@@ -344,7 +344,7 @@ const baseSprintCards = [
     owner: 'Sofia Mendes',
     role: 'Documentation',
     priority: 'P0',
-    status: 'ready-for-sprint',
+    status: 'done',
   },
 ]
 

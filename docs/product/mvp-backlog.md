@@ -2,7 +2,7 @@
 
 Owner: Mariana Costa  
 Agency: AIA - Artificial Intelligence Agency  
-Status: active  
+Status: complete  
 Last updated: 2026-07-02  
 Workflow: `docs/operations/aia-delivery-workflow.md`
 
@@ -228,7 +228,7 @@ Role: Documentation
 Owner: Sofia Mendes  
 Assignee: Sofia Mendes  
 Priority: P0  
-Status: Ready for Sprint  
+Status: Done  
 Tags: `DOCS`, `QA`, `TESTER`, `EVIDENCE`  
 Dependencies: `OJ-003`
 Evidence: `docs/evidence/index.md`
@@ -260,6 +260,11 @@ Documentation expectations:
 - Add index page under `docs/evidence/`.
 
 ## Epic OJ-E03: Requirements
+
+Current execution note:
+
+- Evidence templates completed and linked through `docs/evidence/index.md`.
+- TechLead accepted as Sprint-000 evidence on 2026-07-04.
 
 ### OJ-007 - Map core user journeys
 
@@ -425,7 +430,7 @@ Role: Tech Lead
 Owner: Rafael Almeida  
 Assignee: Rafael Almeida  
 Priority: P0  
-Status: TL Review  
+Status: Done  
 Tags: `ARCHITECTURE`, `DATABASE`, `ADR`  
 Dependencies: `OJ-010`
 
@@ -445,7 +450,7 @@ Current execution note:
 
 - Evidence completed on 2026-07-03: `docs/architecture/orm-migration-strategy.md`.
 - Recommendation: Prisma with PostgreSQL, versioned migrations, forward-fix rollback, drift validation, and NestJS repository boundaries.
-- Ready for TechLead review.
+- TechLead approved on 2026-07-03.
 
 ### OJ-012 - Define auth and RBAC strategy
 
@@ -453,7 +458,7 @@ Role: Backend
 Owner: Gabriel Martins  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: TL Review  
+Status: Done  
 Tags: `AUTH`, `RBAC`, `SECURITY`  
 Dependencies: `OJ-010`, `OJ-008`
 
@@ -481,7 +486,7 @@ Current execution note:
 
 - Evidence completed on 2026-07-03: `docs/architecture/auth-rbac-strategy.md`.
 - Decision: backend-enforced auth/RBAC with secure HttpOnly session cookies, organization/project scope, and roles `org_admin`, `project_admin`, `member`, and `viewer`.
-- Ready for TechLead review.
+- TechLead approved on 2026-07-03 with session hardening and CSRF gate before `OJ-AUTH-001`.
 
 ### OJ-BE-001 - Define REST API contract for MVP
 
@@ -489,7 +494,7 @@ Role: Backend
 Owner: Gabriel Martins  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: TL Review  
+Status: Done  
 Tags: `API`, `OPENAPI`, `BACKEND`  
 Dependencies: `OJ-007`, `OJ-008`, `OJ-010`, `OJ-013`
 
@@ -514,13 +519,19 @@ Documentation expectations:
 
 ## Epic OJ-E05: Data Model And Local Infrastructure
 
+Current execution note:
+
+- Started after TechLead accepted `OJ-013` on 2026-07-03.
+- Evidence completed on 2026-07-03: `docs/architecture/rest-api-contract-mvp.md`.
+- TechLead approved on 2026-07-03.
+
 ### OJ-013 - Design initial PostgreSQL model
 
 Role: DBA  
 Owner: Eduardo Ribeiro  
 Assignee: Eduardo Ribeiro  
 Priority: P0  
-Status: TL Review  
+Status: Done  
 Tags: `DATABASE`, `POSTGRESQL`, `MODEL`  
 Dependencies: `OJ-011`, `OJ-012`
 
@@ -541,13 +552,19 @@ Documentation expectations:
 
 - Include Mermaid ERD.
 
+Current execution note:
+
+- Started after TechLead accepted `OJ-011` and `OJ-012` on 2026-07-03.
+- Evidence completed on 2026-07-03: `docs/architecture/postgresql-mvp-data-model.md`.
+- TechLead approved on 2026-07-03.
+
 ### OJ-014 - Define local database strategy
 
 Role: DBA  
 Owner: Eduardo Ribeiro  
 Assignee: Eduardo Ribeiro  
 Priority: P0  
-Status: TL Review  
+Status: Done  
 Tags: `DATABASE`, `DOCKER`, `LOCAL_ENV`  
 Dependencies: `OJ-013`
 
@@ -561,6 +578,12 @@ Acceptance criteria:
 - Local database name and credentials are defined for development.
 - Test database strategy is documented.
 - Seed requirements are documented.
+
+Current execution note:
+
+- Started after TechLead accepted `OJ-013` on 2026-07-03.
+- Evidence completed on 2026-07-03: `docs/architecture/local-database-strategy.md`.
+- TechLead approved on 2026-07-03.
 
 ### OJ-DB-001 - Create PostgreSQL MVP schema
 
@@ -1058,7 +1081,7 @@ Role: Quality Analyst
 Owner: Renata Barbosa  
 Assignee: Renata Barbosa  
 Priority: P0  
-Status: TL Review  
+Status: Done  
 Tags: `QA`, `QUALITY_GATE`  
 Dependencies: `OJ-009`
 
@@ -1077,7 +1100,7 @@ Current execution note:
 
 - Evidence completed on 2026-07-03: `docs/quality/quality-gates.md`.
 - Gates define required checks, blockers, thresholds, evidence rules, coverage baseline, dependency audit, and SonarQube policy.
-- Ready for TechLead review.
+- TechLead approved on 2026-07-03.
 
 ### OJ-020 - Define CI/CD baseline
 
@@ -1085,7 +1108,7 @@ Role: CI/CD
 Owner: Camila Rocha  
 Assignee: Camila Rocha  
 Priority: P0  
-Status: TL Review  
+Status: Done  
 Tags: `CICD`, `INFRA`, `QUALITY_GATE`  
 Dependencies: `OJ-010`, `OJ-014`, `OJ-019`, `OJ-023`
 
@@ -1100,6 +1123,11 @@ Acceptance criteria:
 - Docs deployment check is listed.
 - PostgreSQL test strategy is documented.
 - Required checks for `development` are documented.
+
+Current execution note:
+
+- Evidence completed on 2026-07-03: `docs/architecture/cicd-baseline.md`.
+- TechLead approved on 2026-07-04.
 
 ### OJ-021 - Define integration and E2E test strategy
 
@@ -1150,7 +1178,7 @@ Role: Test Engineering
 Owner: Bruno Teixeira  
 Assignee: Bruno Teixeira  
 Priority: P0  
-Status: TL Review  
+Status: Done  
 Tags: `TEST`, `COVERAGE`, `QA`  
 Dependencies: `OJ-009`, `OJ-019`
 
@@ -1164,6 +1192,12 @@ Acceptance criteria:
 - Coverage minimums are documented.
 - Exceptions require justification.
 - Commands for local and CI execution are documented.
+
+Current execution note:
+
+- Started after TechLead accepted `OJ-019` on 2026-07-03.
+- Evidence completed on 2026-07-03: `docs/quality/test-pyramid-coverage-policy.md`.
+- TechLead approved on 2026-07-03.
 
 ### OJ-024 - Create CI required checks
 
