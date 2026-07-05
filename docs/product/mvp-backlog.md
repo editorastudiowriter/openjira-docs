@@ -624,7 +624,7 @@ Role: Backend + DBA
 Owner: Eduardo Ribeiro  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: TL Review  
+Status: Done  
 Tags: `DATABASE`, `MIGRATIONS`, `CI`  
 Dependencies: `OJ-011`, `OJ-DB-001`
 
@@ -643,9 +643,10 @@ Current execution note:
 
 - Initial migration exists and was applied against local PostgreSQL on 2026-07-05.
 - Rollback/forward-fix policy and drift evidence were added on branch `feat/OJ-DB-002-migrations-rollback`.
+- GitHub Actions migration validation against PostgreSQL passed on `openjira-server#1`.
 - Evidence: `docs/evidence/sprint-001-oj-db-002.md`.
 - Pull request: `https://github.com/editorastudiowriter/openjira-server/pull/1`.
-- Remaining before Done: GitHub Actions must validate migrations against PostgreSQL or TechLead must split that requirement into a CI/CD card.
+- Remaining after Done: merge decision and branch cleanup follow normal TechLead workflow.
 
 ### OJ-DB-003 - Implement local and test seeds
 

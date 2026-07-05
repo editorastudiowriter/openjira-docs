@@ -6,7 +6,7 @@ Owner: Eduardo Ribeiro
 Assignee: Gabriel Martins  
 Evidence author: Sofia Mendes  
 Date: 2026-07-05  
-Result: ready for TechLead review; CI validation still required before Done
+Result: implementation evidence complete; ready for merge decision
 
 ## Summary
 
@@ -18,9 +18,14 @@ Published backend source:
 - Visibility: private
 - Base branch: `development`
 - Activity branch: `feat/OJ-DB-002-migrations-rollback`
-- Commit: `021dbe3 Add migration rollback and drift workflow`
+- Commits:
+  - `021dbe3 Add migration rollback and drift workflow`
+  - `c9bee97 Add migration validation workflow`
 - Pull request: `https://github.com/editorastudiowriter/openjira-server/pull/1`
-- Author: `Gabriel Martins <gabriel.martins@aia.local>`
+- Merge commit: `94d69f6`
+- Authors:
+  - `Gabriel Martins <gabriel.martins@aia.local>`
+  - `Camila Rocha <camila.rocha@aia.local>`
 
 ## Backend Artifacts
 
@@ -30,6 +35,7 @@ Published backend source:
 - `prisma.config.ts`
 - `.env.example`
 - `package.json`
+- `.github/workflows/backend-migrations.yml`
 
 ## Implemented Scope
 
@@ -38,6 +44,7 @@ Published backend source:
 - Added migration drift, diff, and rollback policy commands.
 - Documented the forward-fix rollback policy for shared environments.
 - Recorded evidence requirements for future migration cards.
+- Added GitHub Actions validation against PostgreSQL for migration pull requests.
 
 ## Commands Executed
 
@@ -51,6 +58,7 @@ Published backend source:
 | `DATABASE_URL=... npm run db:migrate:status` | Passed; database schema is up to date. |
 | `DATABASE_URL=... SHADOW_DATABASE_URL=... npm run db:drift:check` | Passed; no difference detected. |
 | `npm audit --omit=dev --audit-level=high` | Passed high-severity gate. |
+| GitHub Actions `Validate PostgreSQL migrations` | Passed in 1m04s. |
 
 ## Rollback Policy
 
@@ -64,11 +72,11 @@ OpenJira uses forward-fix rollback for shared environments:
 
 ## Residual Risk
 
-- GitHub Actions migration validation against PostgreSQL is not implemented yet; this blocks marking OJ-DB-002 as Done.
 - `npm audit --omit=dev --audit-level=high` passes, but Prisma CLI still reports a moderate transitive advisory under `@hono/node-server`.
+- Branch cleanup follows normal repository maintenance; the activity branch was deleted after merge.
 
 ## Routing Decision
 
-Status moves from `In Development` to `TL Review`.
+Status moves from `TL Review` to `Done`.
 
-TechLead must review the backend PR and confirm whether CI validation should be added inside this card or split into a dedicated CI/CD card.
+The technical blocker was resolved by the AIA team because it did not require client action.

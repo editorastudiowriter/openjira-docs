@@ -353,7 +353,7 @@ const baseSprintCards = [
     owner: 'Eduardo Ribeiro',
     role: 'DBA PostgreSQL / Backend',
     priority: 'P0',
-    status: 'tl-review',
+    status: 'done',
   },
   {
     id: 'OJ-DB-003',
@@ -734,12 +734,12 @@ const cardDetails = {
     tags: ['SPR-001', 'Prisma', 'Migrations'],
     dependencies: ['OJ-011', 'OJ-DB-001'],
     evidence: ['docs/evidence/sprint-001-oj-db-002.md', 'docs/sprints/sprint-001-plan.md', 'docs/architecture/orm-migration-strategy.md'],
-    description: 'Implementa migration inicial, deploy, drift check e política de rollback/forward-fix. Branch e PR estão prontos para revisão técnica.',
+    description: 'Implementa migration inicial, deploy, drift check, política de rollback/forward-fix e validação GitHub Actions contra PostgreSQL.',
     acceptanceCriteria: ['Migration inicial existe.', 'Comandos local/test/deploy estão documentados.', 'Rollback ou forward-fix está evidenciado.'],
     testExpectations: ['Executar migration em banco limpo.', 'Validar ausência de drift.'],
     qaExpectations: ['Confirmar que migration falha de forma segura quando inválida.'],
     documentationExpectations: ['Registrar evidência de migration e rollback/forward-fix.'],
-    nextAction: 'Rafael deve revisar o PR do backend e decidir se CI de migrations entra neste card ou em card de CI/CD.',
+    nextAction: 'Concluído; próxima dependência é OJ-DB-003 seeds.',
     sourcePath: 'docs/product/mvp-backlog.md',
   },
   'OJ-DB-003': {
