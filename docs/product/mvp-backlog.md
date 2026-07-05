@@ -738,7 +738,7 @@ Role: Backend
 Owner: Gabriel Martins  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: Planned  
+Status: Done  
 Tags: `BACKEND`, `NESTJS`, `API_BASELINE`  
 Dependencies: `OJ-015`, `OJ-016`
 
@@ -754,6 +754,14 @@ Acceptance criteria:
 - Swagger/OpenAPI is available.
 - `/health/live` works without database.
 - `/health/ready` validates PostgreSQL connection.
+
+Current execution note:
+
+- API baseline was implemented on branch `feat/OJ-BE-002-api-baseline`.
+- Structured logging completion was implemented on branch `feat/OJ-BE-002-structured-logging`.
+- Evidence: `docs/evidence/sprint-001-oj-be-002.md`.
+- Pull requests: `https://github.com/editorastudiowriter/openjira-server/pull/3`, `https://github.com/editorastudiowriter/openjira-server/pull/4`.
+- GitHub Actions validation passed for both backend PRs.
 
 ### OJ-AUTH-001 - Implement authentication API
 
