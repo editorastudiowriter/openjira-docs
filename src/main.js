@@ -9,6 +9,23 @@ import {
   workflowColumns,
 } from './content.js'
 
+const documentModules = import.meta.glob('../docs/**/*.md', { eager: true, query: '?raw', import: 'default' })
+const sourceModules = import.meta.glob(['./**/*.{js,scss,css}', '../.github/**/*.{yml,yaml}'], {
+  eager: true,
+  query: '?raw',
+  import: 'default',
+})
+const documentIndex = Object.fromEntries([
+  ...Object.entries(documentModules).map(([modulePath, content]) => [
+    modulePath.replace(/^\.\.\//, ''),
+    String(content),
+  ]),
+  ...Object.entries(sourceModules).map(([modulePath, content]) => [
+    modulePath.replace(/^\.\//, 'src/').replace(/^\.\.\//, ''),
+    String(content),
+  ]),
+])
+
 const statusLabel = {
   active: 'Ativa',
   done: 'Concluído',
@@ -53,6 +70,7 @@ const state = {
     text: '',
   },
   returnFocusId: '',
+  documentModal: null,
 }
 
 const app = document.querySelector('#app')
@@ -64,6 +82,113 @@ const escapeHtml = (value = '') =>
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#039;')
+
+const normalizeDocPath = (value = '') =>
+  String(value)
+    .trim()
+    .replace(/^\.\//, '')
+    .replace(/^\.\.\//, '')
+
+const isExternalReference = (value = '') => /^https?:\/\//i.test(String(value).trim())
+
+const documentTitle = (docPath) => {
+  const content = documentIndex[docPath]
+  const heading = content?.match(/^#\s+(.+)$/m)?.[1]
+  if (heading) return heading.trim()
+  return docPath.split('/').pop()?.replace(/\.md$/, '').replaceAll('-', ' ') || docPath
+}
+
+const inlineMarkdown = (value = '') =>
+  escapeHtml(value)
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\x60([^\x60]+)\x60/g, '<code>$1</code>')
+
+const renderMarkdownTable = (rows) => {
+  const parsed = rows.map((row) =>
+    row
+      .trim()
+      .replace(/^\|/, '')
+      .replace(/\|$/, '')
+      .split('|')
+      .map((cell) => inlineMarkdown(cell.trim())),
+  )
+  const [head, , ...body] = parsed
+  return '<table><thead><tr>' +
+    head.map((cell) => '<th>' + cell + '</th>').join('') +
+    '</tr></thead><tbody>' +
+    body.map((row) => '<tr>' + row.map((cell) => '<td>' + cell + '</td>').join('') + '</tr>').join('') +
+    '</tbody></table>'
+}
+
+const renderMarkdown = (markdown = '') => {
+  const blocks = []
+  const lines = markdown.replace(/\r\n/g, '\n').split('\n')
+  let i = 0
+
+  while (i < lines.length) {
+    const line = lines[i]
+    if (!line.trim()) { i += 1; continue }
+    if (/^#{1,4}\s/.test(line)) {
+      const level = Math.min(line.match(/^#+/)?.[0].length || 2, 4)
+      blocks.push('<h' + level + '>' + inlineMarkdown(line.replace(/^#{1,4}\s+/, '')) + '</h' + level + '>')
+      i += 1
+      continue
+    }
+    if (/^\|.+\|$/.test(line) && /^\|?\s*:?-{3,}:?/.test(lines[i + 1] || '')) {
+      const tableRows = []
+      while (i < lines.length && /^\|.+\|$/.test(lines[i])) {
+        tableRows.push(lines[i])
+        i += 1
+      }
+      blocks.push(renderMarkdownTable(tableRows))
+      continue
+    }
+    if (/^[-*]\s+/.test(line)) {
+      const items = []
+      while (i < lines.length && /^[-*]\s+/.test(lines[i])) {
+        items.push('<li>' + inlineMarkdown(lines[i].replace(/^[-*]\s+/, '')) + '</li>')
+        i += 1
+      }
+      blocks.push('<ul>' + items.join('') + '</ul>')
+      continue
+    }
+    if (/^\d+\.\s+/.test(line)) {
+      const items = []
+      while (i < lines.length && /^\d+\.\s+/.test(lines[i])) {
+        items.push('<li>' + inlineMarkdown(lines[i].replace(/^\d+\.\s+/, '')) + '</li>')
+        i += 1
+      }
+      blocks.push('<ol>' + items.join('') + '</ol>')
+      continue
+    }
+    const paragraph = [line.trim()]
+    i += 1
+    while (i < lines.length && lines[i].trim() && !/^#{1,4}\s/.test(lines[i]) && !/^[-*]\s+/.test(lines[i]) && !/^\d+\.\s+/.test(lines[i]) && !/^\|.+\|$/.test(lines[i])) {
+      paragraph.push(lines[i].trim())
+      i += 1
+    }
+    blocks.push('<p>' + inlineMarkdown(paragraph.join(' ')) + '</p>')
+  }
+  return blocks.join('')
+}
+
+const renderDocumentButton = (value) => {
+  const reference = String(value || '').trim()
+  if (!reference) return ''
+  if (isExternalReference(reference)) {
+    return '<a class="doc-ref doc-ref-external" href="' + escapeHtml(reference) + '" target="_blank" rel="noreferrer">' + escapeHtml(reference) + '</a>'
+  }
+  const docPath = normalizeDocPath(reference)
+  const hasDocument = Boolean(documentIndex[docPath])
+  const label = hasDocument ? documentTitle(docPath) : reference
+  return '<button class="doc-ref" type="button" data-doc-path="' + escapeHtml(docPath) + '"><span>' + escapeHtml(label) + '</span><small>' + escapeHtml(docPath) + '</small></button>'
+}
+
+const renderReferenceList = (items) => {
+  const values = asList(items).filter(Boolean)
+  if (!values.length) return '<p class="missing-value">Ainda não documentado</p>'
+  return '<div class="reference-list">' + values.map(renderDocumentButton).join('') + '</div>'
+}
 
 const asList = (value) => {
   if (Array.isArray(value)) return value
@@ -397,7 +522,7 @@ const renderDetail = (card, mode = 'panel') => `
       <div><dt>Priority</dt><dd>${fieldValue(card.priority)}</dd></div>
       <div><dt>Status</dt><dd>${fieldValue(statusLabel[card.status])}</dd></div>
       <div><dt>Tags</dt><dd>${fieldValue(card.tags)}</dd></div>
-      <div><dt>Source path</dt><dd>${fieldValue(card.sourcePath)}</dd></div>
+      <div><dt>Source path</dt><dd>${renderDocumentButton(card.sourcePath)}</dd></div>
     </dl>
 
     <div class="detail-section">
@@ -410,7 +535,7 @@ const renderDetail = (card, mode = 'panel') => `
     </div>
     <div class="detail-section">
       <h3>Evidence</h3>
-      ${renderList(card.evidence)}
+      ${renderReferenceList(card.evidence)}
     </div>
     <div class="detail-section">
       <h3>Acceptance criteria</h3>
@@ -432,9 +557,9 @@ const renderDetail = (card, mode = 'panel') => `
       <h3>Next action</h3>
       <p>${fieldValue(card.nextAction)}</p>
     </div>
-    <a class="source-link" href="${escapeHtml(card.sourcePath || '#')}" target="_blank" rel="noreferrer">
-      Abrir fonte do card
-    </a>
+    <div class="source-actions">
+      ${renderDocumentButton(card.sourcePath)}
+    </div>
   </article>
 `
 
@@ -462,6 +587,33 @@ const renderDocs = (doc) => `
     </ul>
   </section>
 `
+
+const renderDocumentModal = () => {
+  if (!state.documentModal) return ''
+  const docPath = state.documentModal
+  const content = documentIndex[docPath]
+  const title = content ? documentTitle(docPath) : 'Referência não encontrada'
+  const body = content
+    ? docPath.endsWith('.md')
+      ? renderMarkdown(content)
+      : '<pre><code>' + escapeHtml(content) + '</code></pre>'
+    : '<p>Esta referência ainda não possui arquivo local empacotado no portal.</p><p><code>' + escapeHtml(docPath) + '</code></p>'
+
+  return `
+    <div class="document-backdrop" data-document-backdrop></div>
+    <section class="document-modal" role="dialog" aria-modal="true" aria-labelledby="document-modal-title">
+      <div class="document-modal-bar">
+        <div>
+          <p class="eyebrow">Documento</p>
+          <h2 id="document-modal-title">${escapeHtml(title)}</h2>
+          <span>${escapeHtml(docPath)}</span>
+        </div>
+        <button type="button" class="icon-button" data-close-document aria-label="Fechar documento">x</button>
+      </div>
+      <div class="document-body">${body}</div>
+    </section>
+  `
+}
 
 const renderApp = () => {
   const selectedCard = getCard(state.selectedId)
@@ -577,6 +729,8 @@ const renderApp = () => {
         </section>
       </main>
 
+      ${renderDocumentModal()}
+
       <div class="drawer-backdrop" data-drawer-backdrop ${state.drawerOpen ? '' : 'hidden'}></div>
       <section class="detail-drawer" role="dialog" aria-modal="true" aria-labelledby="card-detail-title" ${state.drawerOpen ? '' : 'hidden'}>
         <div class="drawer-bar">
@@ -589,7 +743,8 @@ const renderApp = () => {
   `
 
   bindEvents()
-  if (state.drawerOpen) focusDrawer()
+  if (state.documentModal) focusDocumentModal()
+  else if (state.drawerOpen) focusDrawer()
 }
 
 const setFilter = (key, value) => {
@@ -627,6 +782,20 @@ const focusDrawer = () => {
   const drawer = document.querySelector('.detail-drawer')
   const focusable = drawer?.querySelector('button, a, input, select, textarea, [tabindex]:not([tabindex="-1"])')
   focusable?.focus()
+}
+
+const openDocument = (docPath) => {
+  state.documentModal = normalizeDocPath(docPath)
+  renderApp()
+}
+
+const closeDocument = () => {
+  state.documentModal = null
+  renderApp()
+}
+
+const focusDocumentModal = () => {
+  document.querySelector('[data-close-document]')?.focus()
 }
 
 const trapDrawerFocus = (event) => {
@@ -672,12 +841,19 @@ const bindEvents = () => {
     button.addEventListener('click', clearAllFilters)
   })
 
+  document.querySelectorAll('[data-doc-path]').forEach((button) => {
+    button.addEventListener('click', () => openDocument(button.dataset.docPath))
+  })
+
+  document.querySelector('[data-close-document]')?.addEventListener('click', closeDocument)
+  document.querySelector('[data-document-backdrop]')?.addEventListener('click', closeDocument)
   document.querySelector('[data-close-drawer]')?.addEventListener('click', closeDrawer)
   document.querySelector('[data-drawer-backdrop]')?.addEventListener('click', closeDrawer)
 }
 
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && state.drawerOpen) closeDrawer()
+  if (event.key === 'Escape' && state.documentModal) closeDocument()
+  else if (event.key === 'Escape' && state.drawerOpen) closeDrawer()
   trapDrawerFocus(event)
 })
 

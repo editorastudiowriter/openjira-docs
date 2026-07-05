@@ -97,7 +97,7 @@ export const docs = [
     eyebrow: 'Qualidade',
     title: 'Quality gates aprovados na Sprint 000',
     summary:
-      'A política final depende da aprovação do card OJ-019, mas o workflow já exige validação objetiva antes de considerar uma entrega pronta.',
+      'A política de qualidade foi aprovada na Sprint 000 e o workflow exige validação objetiva antes de considerar uma entrega pronta.',
     items: [
       'Card fonte: OJ-019 - Define quality gates.',
       'Critérios candidatos: lint, formatação, typecheck e build aprovados.',
@@ -113,7 +113,7 @@ export const docs = [
     eyebrow: 'Backlog',
     title: 'Backlog MVP e Sprint 000 concluídos',
     summary:
-      'A AIA reestruturou o backlog usando o card model obrigatório. A SPR-000 está ativa para grooming e TechLead review, mas ainda não está pronta para execução ampla.',
+      'A AIA reestruturou o backlog usando o card model obrigatório. A SPR-000 foi concluída e deixou a fundação pronta para o planejamento da Sprint 001.',
     items: [
       'Backlog: docs/product/mvp-backlog.md.',
       'Sprint ativa: docs/sprints/sprint-000-plan.md.',
@@ -151,8 +151,8 @@ export const sprintRoadmap = [
   {
     id: 'SPR-000',
     title: 'Foundation And Operating Model',
-    state: 'active',
-    goal: 'Fechar workflow, backlog, docs, arquitetura, dados, qualidade e CI/CD baseline.',
+    state: 'done',
+    goal: 'Fechou workflow, backlog, docs, arquitetura, dados, qualidade e CI/CD baseline.',
     cards: ['OJ-001', 'OJ-002R', 'OJ-003', 'OJ-004', 'OJ-005', 'OJ-006', 'OJ-007', 'OJ-008', 'OJ-009', 'OJ-010', 'OJ-011', 'OJ-012', 'OJ-BE-001', 'OJ-013', 'OJ-014', 'OJ-015', 'OJ-019', 'OJ-020', 'OJ-023', 'OJ-026'],
   },
   {
