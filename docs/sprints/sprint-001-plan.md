@@ -18,10 +18,10 @@ Deliver the first executable OpenJira foundation: database schema, migrations, s
 
 | Card | Title | Owner | Priority | Planning status |
 | --- | --- | --- | --- | --- |
-| OJ-DB-001 | Create PostgreSQL MVP schema | Eduardo Ribeiro | P0 | Planned |
-| OJ-DB-002 | Implement migrations and rollback | Eduardo Ribeiro / Gabriel Martins | P0 | Planned |
+| OJ-DB-001 | Create PostgreSQL MVP schema | Eduardo Ribeiro | P0 | Done |
+| OJ-DB-002 | Implement migrations and rollback | Eduardo Ribeiro / Gabriel Martins | P0 | In Development |
 | OJ-DB-003 | Implement local and test seeds | Eduardo Ribeiro / Gabriel Martins | P0 | Planned |
-| OJ-016 | Implement backend configuration module | Gabriel Martins | P0 | Planned |
+| OJ-016 | Implement backend configuration module | Gabriel Martins | P0 | Done |
 | OJ-BE-002 | Implement NestJS API baseline | Gabriel Martins | P0 | Planned |
 | OJ-AUTH-001 | Implement authentication API | Gabriel Martins | P0 | Planned |
 | OJ-AUTH-002 | Implement backend RBAC | Gabriel Martins | P0 | Planned |
@@ -78,3 +78,8 @@ OJ-015 is already Done and remains evidence for the backend foundation.
 - Preparation report: `docs/sprints/sprint-001-preparation.md`.
 - Sprint 000 report: `docs/sprints/sprint-000-report.md`.
 - Backlog source: `docs/product/mvp-backlog.md`.
+
+## Execution Evidence
+
+- OJ-DB-001 and OJ-016 evidence: `docs/evidence/sprint-001-oj-db-001-oj-016.md`.
+- OJ-DB-002 status: in development; initial migration applied, rollback/CI evidence pending.

@@ -591,7 +591,7 @@ Role: DBA
 Owner: Eduardo Ribeiro  
 Assignee: Eduardo Ribeiro  
 Priority: P0  
-Status: Planned  
+Status: Done  
 Tags: `DATABASE`, `SCHEMA`, `POSTGRESQL`  
 Dependencies: `OJ-011`, `OJ-013`
 
@@ -604,6 +604,11 @@ Acceptance criteria:
 - Schema includes FKs, unique constraints, timestamps, required indexes, and integrity constraints.
 - Main filters are backed by indexes.
 - Tenant isolation fields are present where required.
+
+Current execution note:
+
+- Evidence completed on 2026-07-05: `docs/evidence/sprint-001-oj-db-001-oj-016.md`.
+- PostgreSQL migration applied successfully against Docker Compose database `openjira_dev`.
 
 Test expectations:
 
@@ -619,7 +624,7 @@ Role: Backend + DBA
 Owner: Eduardo Ribeiro  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: Planned  
+Status: In Development  
 Tags: `DATABASE`, `MIGRATIONS`, `CI`  
 Dependencies: `OJ-011`, `OJ-DB-001`
 
@@ -633,6 +638,11 @@ Acceptance criteria:
 - Migration commands are documented.
 - Rollback strategy is documented.
 - CI validates migrations against PostgreSQL.
+
+Current execution note:
+
+- Initial migration exists and was applied against local PostgreSQL on 2026-07-05.
+- Remaining: rollback/forward-fix detail, CI migration validation, and drift evidence.
 
 ### OJ-DB-003 - Implement local and test seeds
 
@@ -691,7 +701,7 @@ Role: Backend
 Owner: Gabriel Martins  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: Planned  
+Status: Done  
 Tags: `BACKEND`, `CONFIG`, `ENV`  
 Dependencies: `OJ-015`
 
@@ -705,6 +715,11 @@ Acceptance criteria:
 - Database URL is configured.
 - Local and test env patterns are documented.
 - Invalid env fails fast.
+
+Current execution note:
+
+- Evidence completed on 2026-07-05: `docs/evidence/sprint-001-oj-db-001-oj-016.md`.
+- Missing `DATABASE_URL` and wildcard CORS with credentials both fail during bootstrap.
 
 ### OJ-BE-002 - Implement NestJS API baseline
 
