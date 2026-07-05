@@ -2,34 +2,36 @@
 
 Owner: Mariana Costa  
 Agency: AIA - Artificial Intelligence Agency  
-Status: planned  
-Depends on: Sprint 000 cards approved by TechLead
+Status: preparation started  
+Preparation started: 2026-07-05  
+Depends on: Sprint 000 completed and approved foundation cards
 
 ## Workflow Rule
 
-This sprint cannot start execution until its selected cards are moved from `TL Review` to `Ready for Sprint` or `Planned` according to `docs/operations/aia-delivery-workflow.md`.
+SPR-001 is in preparation. No product implementation starts until the selected card is assigned, its dependencies are satisfied, and the workflow in `docs/operations/aia-delivery-workflow.md` allows execution.
 
 ## Sprint Goal
 
-Deliver the first executable OpenJira foundation: database schema, migrations, seeds, backend baseline, authentication, RBAC, organizations, projects, and authenticated frontend shell.
+Deliver the first executable OpenJira foundation: database schema, migrations, seeds, backend configuration, API baseline, authentication, RBAC, organizations, projects, authenticated frontend shell, route map, login UI, and organization/project selection UI.
 
-## Candidate Cards
+## Selected Cards
 
-| Card | Title | Owner | Priority | Required status before execution |
+| Card | Title | Owner | Priority | Planning status |
 | --- | --- | --- | --- | --- |
-| OJ-DB-001 | Create PostgreSQL MVP schema | Eduardo Ribeiro | P0 | Ready for Sprint |
-| OJ-DB-002 | Implement migrations and rollback | Eduardo Ribeiro | P0 | Ready for Sprint |
-| OJ-DB-003 | Implement local and test seeds | Eduardo Ribeiro | P0 | Ready for Sprint |
-| OJ-015 | Scaffold openjira-server | Gabriel Martins | P0 | Ready for Sprint |
-| OJ-016 | Implement backend configuration module | Gabriel Martins | P0 | Ready for Sprint |
-| OJ-BE-002 | Implement NestJS API baseline | Gabriel Martins | P0 | Ready for Sprint |
-| OJ-AUTH-001 | Implement authentication API | Gabriel Martins | P0 | Ready for Sprint |
-| OJ-AUTH-002 | Implement backend RBAC | Gabriel Martins | P0 | Ready for Sprint |
-| OJ-BE-003 | Implement organizations, members, and projects API | Gabriel Martins | P0 | Ready for Sprint |
-| OJ-017 | Define frontend app shell and navigation | Lucas Ferreira | P0 | Ready for Sprint |
-| OJ-FE-001 | Define Next.js route map | Lucas Ferreira | P0 | Ready for Sprint |
-| OJ-FE-002 | Implement login UI and auth states | Lucas Ferreira | P0 | Ready for Sprint |
-| OJ-FE-003 | Implement organization and project selection UI | Lucas Ferreira | P0 | Ready for Sprint |
+| OJ-DB-001 | Create PostgreSQL MVP schema | Eduardo Ribeiro | P0 | Planned |
+| OJ-DB-002 | Implement migrations and rollback | Eduardo Ribeiro / Gabriel Martins | P0 | Planned |
+| OJ-DB-003 | Implement local and test seeds | Eduardo Ribeiro / Gabriel Martins | P0 | Planned |
+| OJ-016 | Implement backend configuration module | Gabriel Martins | P0 | Planned |
+| OJ-BE-002 | Implement NestJS API baseline | Gabriel Martins | P0 | Planned |
+| OJ-AUTH-001 | Implement authentication API | Gabriel Martins | P0 | Planned |
+| OJ-AUTH-002 | Implement backend RBAC | Gabriel Martins | P0 | Planned |
+| OJ-BE-003 | Implement organizations, members, and projects API | Gabriel Martins | P0 | Planned |
+| OJ-017 | Define frontend app shell and navigation | Lucas Ferreira | P0 | Planned |
+| OJ-FE-001 | Define Next.js route map | Lucas Ferreira | P0 | Planned |
+| OJ-FE-002 | Implement login UI and auth states | Lucas Ferreira | P0 | Planned |
+| OJ-FE-003 | Implement organization and project selection UI | Lucas Ferreira | P0 | Planned |
+
+OJ-015 is already Done and remains evidence for the backend foundation.
 
 ## Entry Criteria
 
@@ -38,12 +40,41 @@ Deliver the first executable OpenJira foundation: database schema, migrations, s
 - Data planning cards `OJ-013` and `OJ-014` are approved.
 - API contract card `OJ-BE-001` is approved.
 - Quality and CI baseline cards `OJ-019`, `OJ-020`, and `OJ-023` are approved.
+- Evidence templates from `OJ-026` are available.
+
+## Execution Sequence
+
+1. Database schema: `OJ-DB-001`.
+2. Migrations and rollback: `OJ-DB-002`.
+3. Local and test seeds: `OJ-DB-003`.
+4. Backend configuration: `OJ-016`.
+5. API baseline: `OJ-BE-002`.
+6. Authentication: `OJ-AUTH-001`.
+7. RBAC: `OJ-AUTH-002`.
+8. Organizations, members, and projects API: `OJ-BE-003`.
+9. Frontend shell and route map: `OJ-017`, `OJ-FE-001`.
+10. Login UI: `OJ-FE-002`.
+11. Organization/project selection UI: `OJ-FE-003`.
+
+## Quality Gates
+
+- Backend: `npm run lint`, `npm run build`, `npm audit --omit=dev --audit-level=high`.
+- Frontend: `npm run lint`, `npm run build`.
+- Database: Prisma validate/generate, clean migration, deploy migration, drift check, idempotent seed.
+- Auth/RBAC: integration evidence for valid login, invalid login, protected route denial, role denial, and cross-org/cross-project denial without data leakage.
+- Documentation: every completed card must link evidence in Markdown.
 
 ## Exit Criteria
 
-- Backend can build and expose health/readiness endpoints.
-- Local PostgreSQL schema, migrations, rollback, and seeds are available.
+- Backend can build and expose live/readiness endpoints.
+- Local PostgreSQL schema, migrations, rollback/forward-fix policy, and seeds are available.
 - Authentication and RBAC are enforced on protected endpoints.
 - User can reach an authenticated frontend shell and select organization/project context.
 - Required checks defined for the sprint pass.
+- Sprint report is produced from `docs/sprints/report-template.md`.
 
+## Preparation Evidence
+
+- Preparation report: `docs/sprints/sprint-001-preparation.md`.
+- Sprint 000 report: `docs/sprints/sprint-000-report.md`.
+- Backlog source: `docs/product/mvp-backlog.md`.

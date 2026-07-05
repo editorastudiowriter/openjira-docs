@@ -591,7 +591,7 @@ Role: DBA
 Owner: Eduardo Ribeiro  
 Assignee: Eduardo Ribeiro  
 Priority: P0  
-Status: TL Review  
+Status: Planned  
 Tags: `DATABASE`, `SCHEMA`, `POSTGRESQL`  
 Dependencies: `OJ-011`, `OJ-013`
 
@@ -619,7 +619,7 @@ Role: Backend + DBA
 Owner: Eduardo Ribeiro  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: TL Review  
+Status: Planned  
 Tags: `DATABASE`, `MIGRATIONS`, `CI`  
 Dependencies: `OJ-011`, `OJ-DB-001`
 
@@ -640,7 +640,7 @@ Role: Backend + DBA
 Owner: Eduardo Ribeiro  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: TL Review  
+Status: Planned  
 Tags: `DATABASE`, `SEEDS`, `TEST_DATA`  
 Dependencies: `OJ-DB-002`
 
@@ -691,7 +691,7 @@ Role: Backend
 Owner: Gabriel Martins  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: TL Review  
+Status: Planned  
 Tags: `BACKEND`, `CONFIG`, `ENV`  
 Dependencies: `OJ-015`
 
@@ -712,7 +712,7 @@ Role: Backend
 Owner: Gabriel Martins  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: TL Review  
+Status: Planned  
 Tags: `BACKEND`, `NESTJS`, `API_BASELINE`  
 Dependencies: `OJ-015`, `OJ-016`
 
@@ -735,7 +735,7 @@ Role: Backend
 Owner: Gabriel Martins  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: TL Review  
+Status: Planned  
 Tags: `BACKEND`, `AUTH`, `SECURITY`  
 Dependencies: `OJ-012`, `OJ-BE-002`, `OJ-DB-002`
 
@@ -761,7 +761,7 @@ Role: Backend
 Owner: Gabriel Martins  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: TL Review  
+Status: Planned  
 Tags: `BACKEND`, `RBAC`, `SECURITY`  
 Dependencies: `OJ-012`, `OJ-DB-001`, `OJ-AUTH-001`
 
@@ -782,7 +782,7 @@ Role: Backend
 Owner: Gabriel Martins  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: TL Review  
+Status: Planned  
 Tags: `BACKEND`, `ORGANIZATIONS`, `PROJECTS`  
 Dependencies: `OJ-AUTH-002`, `OJ-DB-002`
 
@@ -869,7 +869,7 @@ Role: Frontend
 Owner: Lucas Ferreira  
 Assignee: Lucas Ferreira  
 Priority: P0  
-Status: TL Review  
+Status: Planned  
 Tags: `FRONTEND`, `NEXTJS`, `APP_SHELL`  
 Dependencies: `OJ-010`, `OJ-012`
 
@@ -913,7 +913,7 @@ Role: Frontend
 Owner: Lucas Ferreira  
 Assignee: Lucas Ferreira  
 Priority: P0  
-Status: TL Review  
+Status: Planned  
 Tags: `FRONTEND`, `ROUTES`, `NEXTJS`  
 Dependencies: `OJ-017`, `OJ-BE-001`
 
@@ -933,7 +933,7 @@ Role: Frontend
 Owner: Lucas Ferreira  
 Assignee: Lucas Ferreira  
 Priority: P0  
-Status: TL Review  
+Status: Planned  
 Tags: `FRONTEND`, `AUTH`, `UI`  
 Dependencies: `OJ-AUTH-001`, `OJ-FE-001`
 
@@ -954,7 +954,7 @@ Role: Frontend
 Owner: Lucas Ferreira  
 Assignee: Lucas Ferreira  
 Priority: P0  
-Status: TL Review  
+Status: Planned  
 Tags: `FRONTEND`, `ORGANIZATIONS`, `PROJECTS`  
 Dependencies: `OJ-BE-003`, `OJ-FE-001`
 
@@ -1349,34 +1349,25 @@ Acceptance criteria:
 
 ## Sprint Planning Recommendation
 
-Do not start feature implementation until the remaining grooming cards are approved by TechLead and moved to `Ready for Sprint` or `Planned`.
+SPR-001 preparation started on 2026-07-05. Selected SPR-001 cards are Planned, but implementation still follows dependency order and per-card assignment.
 
 Already internally unblocked:
 
 - `OJ-007` - evidence in `docs/requirements/core-user-journeys.md`.
 - `OJ-026` - evidence in `docs/evidence/index.md`.
 
-Remaining internal dependency chain:
+Sprint-001 internal dependency chain:
 
-- `OJ-008`
-- `OJ-009`
-- `OJ-010`
-- `OJ-011`
-- `OJ-012`
-- `OJ-013`
-- `OJ-014`
-- `OJ-019`
-- `OJ-020`
-- `OJ-023`
+- `OJ-DB-001` -> `OJ-DB-002` -> `OJ-DB-003`
+- `OJ-016` -> `OJ-BE-002` -> `OJ-AUTH-001` -> `OJ-AUTH-002` -> `OJ-BE-003`
+- `OJ-017` -> `OJ-FE-001` -> `OJ-FE-002` / `OJ-FE-003`
 
-Recommended Sprint 000 continuation:
+Recommended Sprint 001 continuation:
 
-- Execute `OJ-008` after TechLead accepts `OJ-007` evidence.
-- Finish requirements and acceptance criteria.
-- Finish architecture and ORM decision.
-- Finish data model and local database plan.
-- Finish quality gates and CI/CD baseline.
-- Request required access through Mariana and Infra.
+- Start execution with database schema and backend configuration.
+- Keep board, issues, comments, filters, and drag/drop out of SPR-001.
+- Treat CSRF/session hardening as mandatory before authentication implementation.
+- Produce evidence per card using `docs/evidence/`.
 
 Roadmap files:
 

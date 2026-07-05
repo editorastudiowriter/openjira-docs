@@ -621,6 +621,16 @@ const renderApp = () => {
   const nextCard = initialCard
   const ownerDistribution = summarizeBy('owner')
   const roleDistribution = summarizeBy('role')
+  const blockedCount = countByStatus('blocked')
+  const reviewCount = countByStatus('tl-review')
+  const plannedCount = countByStatus('planned')
+  const readyCount = countByStatus('ready-for-sprint')
+  const readinessTitle = blockedCount || reviewCount
+    ? 'Readiness: não pronto para execução ampla'
+    : 'Readiness: pronto para execução sequenciada'
+  const readinessDetail = blockedCount || reviewCount
+    ? `${reviewCount} em TL Review · ${blockedCount} bloqueado · ${readyCount} prontos para sprint`
+    : `${plannedCount} planejado · ${readyCount} pronto para sprint · execução depende da ordem dos cards`
 
   app.innerHTML = `
     <div class="app-shell">
@@ -662,8 +672,8 @@ const renderApp = () => {
           </div>
 
           <div class="readiness-strip" role="status">
-            <strong>Readiness: não pronto para execução ampla</strong>
-            <span>${countByStatus('tl-review')} em TL Review · ${countByStatus('blocked')} bloqueado · ${countByStatus('ready-for-sprint')} prontos para sprint</span>
+            <strong>${readinessTitle}</strong>
+            <span>${readinessDetail}</span>
           </div>
 
           <div class="status-metrics" aria-label="Métricas por status">
