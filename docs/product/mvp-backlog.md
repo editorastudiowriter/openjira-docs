@@ -769,7 +769,7 @@ Role: Backend
 Owner: Gabriel Martins  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: Planned  
+Status: Done  
 Tags: `BACKEND`, `AUTH`, `SECURITY`  
 Dependencies: `OJ-012`, `OJ-BE-002`, `OJ-DB-002`
 
@@ -788,6 +788,13 @@ Acceptance criteria:
 Test expectations:
 
 - Unit and integration tests cover login success, invalid credentials, and private route protection.
+
+Current execution note:
+
+- Authentication API was implemented on branch `feat/OJ-AUTH-001-authentication-api`.
+- Evidence: `docs/evidence/sprint-001-oj-auth-001.md`.
+- Pull request: `https://github.com/editorastudiowriter/openjira-server/pull/5`.
+- GitHub Actions validation passed.
 
 ### OJ-AUTH-002 - Implement backend RBAC
 
