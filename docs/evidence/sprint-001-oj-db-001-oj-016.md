@@ -9,6 +9,13 @@ Result: approved for completed scope
 
 OJ-DB-001 and OJ-016 were implemented in the backend workspace at `/home/douglasdreer/projects/javascript/nestjs/openjira-server`.
 
+Published backend source:
+
+- Repository: `editorastudiowriter/openjira-server`
+- Visibility: private
+- Branch: `development`
+- Commit: `785e47c Add Sprint 001 database schema and config`
+
 OJ-DB-002 was started because the initial migration was required to prove schema creation, but rollback/CI evidence is not complete yet.
 
 ## Backend Artifacts
@@ -100,7 +107,7 @@ PostgreSQL verification returned:
 
 ## Residual Risk
 
-- Backend workspace is not a git repository yet, so source control evidence is currently through this portal plus local files.
+- Backend source is published in the private `openjira-server` repository on branch `development`.
 - Prisma CLI currently reports moderate transitive advisory under `@hono/node-server`; high-severity audit gate passes.
 - OJ-DB-002 remains open for rollback/forward-fix detail, CI migration validation, and drift policy evidence.
 - OJ-DB-003 remains open for deterministic seeds.
