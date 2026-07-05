@@ -20,7 +20,7 @@ Deliver the first executable OpenJira foundation: database schema, migrations, s
 | --- | --- | --- | --- | --- |
 | OJ-DB-001 | Create PostgreSQL MVP schema | Eduardo Ribeiro | P0 | Done |
 | OJ-DB-002 | Implement migrations and rollback | Eduardo Ribeiro / Gabriel Martins | P0 | Done |
-| OJ-DB-003 | Implement local and test seeds | Eduardo Ribeiro / Gabriel Martins | P0 | Planned |
+| OJ-DB-003 | Implement local and test seeds | Eduardo Ribeiro / Gabriel Martins | P0 | Done |
 | OJ-016 | Implement backend configuration module | Gabriel Martins | P0 | Done |
 | OJ-BE-002 | Implement NestJS API baseline | Gabriel Martins | P0 | Planned |
 | OJ-AUTH-001 | Implement authentication API | Gabriel Martins | P0 | Planned |
@@ -84,3 +84,5 @@ OJ-015 is already Done and remains evidence for the backend foundation.
 - OJ-DB-001 and OJ-016 evidence: `docs/evidence/sprint-001-oj-db-001-oj-016.md`.
 - OJ-DB-002 evidence: `docs/evidence/sprint-001-oj-db-002.md`.
 - OJ-DB-002 status: Done; rollback/forward-fix, drift evidence, and GitHub Actions migration validation complete.
+- OJ-DB-003 evidence: `docs/evidence/sprint-001-oj-db-003.md`.
+- OJ-DB-003 status: Done; local/test seeds, idempotency, and GitHub Actions validation complete.
