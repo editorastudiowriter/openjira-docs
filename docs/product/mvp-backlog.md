@@ -654,7 +654,7 @@ Role: Backend + DBA
 Owner: Eduardo Ribeiro  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: Planned  
+Status: Done  
 Tags: `DATABASE`, `SEEDS`, `TEST_DATA`  
 Dependencies: `OJ-DB-002`
 
@@ -667,6 +667,13 @@ Acceptance criteria:
 - Seeds are idempotent.
 - Demo data supports MVP manual testing.
 - Test data supports integration and E2E tests.
+
+Current execution note:
+
+- Deterministic local/test seeds were added on branch `feat/OJ-DB-003-local-test-seeds`.
+- Evidence: `docs/evidence/sprint-001-oj-db-003.md`.
+- Pull request: `https://github.com/editorastudiowriter/openjira-server/pull/2`.
+- GitHub Actions migration and seed validation against PostgreSQL passed.
 
 ## Epic OJ-E06: Backend MVP
 
