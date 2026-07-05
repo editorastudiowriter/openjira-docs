@@ -802,7 +802,7 @@ Role: Backend
 Owner: Gabriel Martins  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: Planned  
+Status: Done  
 Tags: `BACKEND`, `RBAC`, `SECURITY`  
 Dependencies: `OJ-012`, `OJ-DB-001`, `OJ-AUTH-001`
 
@@ -816,6 +816,13 @@ Acceptance criteria:
 - Role checks are enforced in backend.
 - Frontend cannot bypass authorization.
 - Permission denied returns standard `403` error.
+
+Current execution note:
+
+- Backend RBAC was implemented on branch `feat/OJ-AUTH-002-backend-rbac`.
+- Evidence: `docs/evidence/sprint-001-oj-auth-002.md`.
+- Pull request: `https://github.com/editorastudiowriter/openjira-server/pull/6`.
+- GitHub Actions validation passed.
 
 ### OJ-BE-003 - Implement organizations, members, and projects API
 
