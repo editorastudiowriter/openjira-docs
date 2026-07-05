@@ -24,7 +24,7 @@ Deliver the first executable OpenJira foundation: database schema, migrations, s
 | OJ-016 | Implement backend configuration module | Gabriel Martins | P0 | Done |
 | OJ-BE-002 | Implement NestJS API baseline | Gabriel Martins | P0 | Done |
 | OJ-AUTH-001 | Implement authentication API | Gabriel Martins | P0 | Done |
-| OJ-AUTH-002 | Implement backend RBAC | Gabriel Martins | P0 | Planned |
+| OJ-AUTH-002 | Implement backend RBAC | Gabriel Martins | P0 | Done |
 | OJ-BE-003 | Implement organizations, members, and projects API | Gabriel Martins | P0 | Planned |
 | OJ-017 | Define frontend app shell and navigation | Lucas Ferreira | P0 | Planned |
 | OJ-FE-001 | Define Next.js route map | Lucas Ferreira | P0 | Planned |
@@ -90,3 +90,5 @@ OJ-015 is already Done and remains evidence for the backend foundation.
 - OJ-BE-002 status: Done; validation, error envelope, request id, structured logs, Swagger, live health, and ready health complete.
 - OJ-AUTH-001 evidence: `docs/evidence/sprint-001-oj-auth-001.md`.
 - OJ-AUTH-001 status: Done; login, current user, logout, session cookie, CSRF guard, and protected route denial complete.
+- OJ-AUTH-002 evidence: `docs/evidence/sprint-001-oj-auth-002.md`.
+- OJ-AUTH-002 status: Done; backend RBAC guard, membership checks, role checks, protected proof endpoints, and standard `403` denial complete.
