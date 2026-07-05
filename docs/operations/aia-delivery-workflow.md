@@ -122,6 +122,37 @@ Exit criteria:
 - Assignee has correct specialty.
 - Seniority matches task complexity.
 
+### 4.1 Branch And Commit Identity
+
+All implementation, documentation, quality, CI/CD, or operations changes must be committed from an activity branch.
+
+Branch pattern:
+
+```text
+feat/<numero-task>-<descricao-task>
+```
+
+Examples:
+
+- `feat/OJ-DB-001-postgresql-mvp-schema`
+- `feat/OJ-016-backend-configuration-module`
+- `feat/OJ-003-branch-workflow`
+
+Before committing, configure the local repository author as the AIA member executing the task:
+
+```bash
+git config user.name "<Nome Sobrenome>"
+git config user.email "<nome.sobrenome@aia.local>"
+```
+
+Examples:
+
+- `Sofia Mendes <sofia.mendes@aia.local>`
+- `Gabriel Martins <gabriel.martins@aia.local>`
+- `Eduardo Ribeiro <eduardo.ribeiro@aia.local>`
+
+Direct commits to `main`, `master`, or `development` are not allowed for new work. `development` receives work through PR or explicit TechLead approval.
+
 ### 5. Development
 
 The developer owns execution of assigned implementation cards.
