@@ -1030,7 +1030,7 @@ Role: Frontend
 Owner: Lucas Ferreira  
 Assignee: Lucas Ferreira  
 Priority: P0  
-Status: Planned  
+Status: Done  
 Tags: `FRONTEND`, `ORGANIZATIONS`, `PROJECTS`  
 Dependencies: `OJ-BE-003`, `OJ-FE-001`
 
@@ -1043,6 +1043,13 @@ Acceptance criteria:
 - Accessible organizations are listed.
 - Projects are listed under selected organization.
 - Empty and permission states exist.
+
+Current execution note:
+
+- Organization/project selection UI was implemented on branch `feat/OJ-FE-003-organization-project-selection-ui`.
+- Evidence: `docs/evidence/sprint-001-oj-fe-003.md`.
+- Pull request: `https://github.com/editorastudiowriter/openjira-web/pull/3`.
+- Validation passed with `npm run lint` and `npm run build`.
 
 ### OJ-FE-004 - Implement Kanban board UI
 
