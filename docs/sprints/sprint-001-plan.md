@@ -29,7 +29,7 @@ Deliver the first executable OpenJira foundation: database schema, migrations, s
 | OJ-017 | Define frontend app shell and navigation | Lucas Ferreira | P0 | Done |
 | OJ-FE-001 | Define Next.js route map | Lucas Ferreira | P0 | Done |
 | OJ-FE-002 | Implement login UI and auth states | Lucas Ferreira | P0 | Done |
-| OJ-FE-003 | Implement organization and project selection UI | Lucas Ferreira | P0 | Planned |
+| OJ-FE-003 | Implement organization and project selection UI | Lucas Ferreira | P0 | Done |
 
 OJ-015 is already Done and remains evidence for the backend foundation.
 
@@ -98,3 +98,5 @@ OJ-015 is already Done and remains evidence for the backend foundation.
 - OJ-017 and OJ-FE-001 status: Done; frontend app shell, navigation model, route map, loading, 403, 404, and generic error states are implemented.
 - OJ-FE-002 evidence: `docs/evidence/sprint-001-oj-fe-002.md`.
 - OJ-FE-002 status: Done; login form, auth API submission, loading/error/session-expired states, auth boundary, and logout are implemented.
+- OJ-FE-003 evidence: `docs/evidence/sprint-001-oj-fe-003.md`.
+- OJ-FE-003 status: Done; organization/project selection loads backend organizations and projects with loading, empty, and safe error states.
