@@ -830,7 +830,7 @@ Role: Backend
 Owner: Gabriel Martins  
 Assignee: Gabriel Martins  
 Priority: P0  
-Status: Planned  
+Status: Done  
 Tags: `BACKEND`, `ORGANIZATIONS`, `PROJECTS`  
 Dependencies: `OJ-AUTH-002`, `OJ-DB-002`
 
@@ -844,6 +844,13 @@ Acceptance criteria:
 - User can create organization when allowed.
 - User can list and create projects in an organization when allowed.
 - Unauthorized access is denied.
+
+Current execution note:
+
+- Organizations, members, and projects API was implemented on branch `feat/OJ-BE-003-organizations-members-projects-api`.
+- Evidence: `docs/evidence/sprint-001-oj-be-003.md`.
+- Pull request: `https://github.com/editorastudiowriter/openjira-server/pull/7`.
+- GitHub Actions validation passed.
 
 ### OJ-BE-004 - Implement boards, columns, and issue movement API
 
