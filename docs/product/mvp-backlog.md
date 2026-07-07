@@ -924,7 +924,7 @@ Role: Frontend
 Owner: Lucas Ferreira  
 Assignee: Lucas Ferreira  
 Priority: P0  
-Status: Planned  
+Status: Done  
 Tags: `FRONTEND`, `NEXTJS`, `APP_SHELL`  
 Dependencies: `OJ-010`, `OJ-012`
 
@@ -939,6 +939,13 @@ Acceptance criteria:
 - Empty/loading/error/session-expired states are planned.
 - Mobile behavior is defined.
 - Permission states are identified.
+
+Current execution note:
+
+- Frontend shell and navigation were implemented on branch `feat/OJ-017-frontend-shell-route-map`.
+- Evidence: `docs/evidence/sprint-001-oj-017-oj-fe-001.md`.
+- Pull request: `https://github.com/editorastudiowriter/openjira-web/pull/1`.
+- Validation passed with `npm run lint` and `npm run build`.
 
 ### OJ-018 - Define UX/UI MVP screens and board rules
 
@@ -968,7 +975,7 @@ Role: Frontend
 Owner: Lucas Ferreira  
 Assignee: Lucas Ferreira  
 Priority: P0  
-Status: Planned  
+Status: Done  
 Tags: `FRONTEND`, `ROUTES`, `NEXTJS`  
 Dependencies: `OJ-017`, `OJ-BE-001`
 
@@ -981,6 +988,13 @@ Acceptance criteria:
 - Routes exist for login, org/project selection, board, issue detail, and account/session states.
 - Each route declares auth requirement and data source.
 - `403`, `404`, and generic error states are planned.
+
+Current execution note:
+
+- Next.js route map was implemented with OJ-017 on branch `feat/OJ-017-frontend-shell-route-map`.
+- Evidence: `docs/evidence/sprint-001-oj-017-oj-fe-001.md`.
+- Pull request: `https://github.com/editorastudiowriter/openjira-web/pull/1`.
+- Validation passed with `npm run lint` and `npm run build`.
 
 ### OJ-FE-002 - Implement login UI and auth states
 

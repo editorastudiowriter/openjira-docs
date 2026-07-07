@@ -26,8 +26,8 @@ Deliver the first executable OpenJira foundation: database schema, migrations, s
 | OJ-AUTH-001 | Implement authentication API | Gabriel Martins | P0 | Done |
 | OJ-AUTH-002 | Implement backend RBAC | Gabriel Martins | P0 | Done |
 | OJ-BE-003 | Implement organizations, members, and projects API | Gabriel Martins | P0 | Done |
-| OJ-017 | Define frontend app shell and navigation | Lucas Ferreira | P0 | Planned |
-| OJ-FE-001 | Define Next.js route map | Lucas Ferreira | P0 | Planned |
+| OJ-017 | Define frontend app shell and navigation | Lucas Ferreira | P0 | Done |
+| OJ-FE-001 | Define Next.js route map | Lucas Ferreira | P0 | Done |
 | OJ-FE-002 | Implement login UI and auth states | Lucas Ferreira | P0 | Planned |
 | OJ-FE-003 | Implement organization and project selection UI | Lucas Ferreira | P0 | Planned |
 
@@ -94,3 +94,5 @@ OJ-015 is already Done and remains evidence for the backend foundation.
 - OJ-AUTH-002 status: Done; backend RBAC guard, membership checks, role checks, protected proof endpoints, and standard `403` denial complete.
 - OJ-BE-003 evidence: `docs/evidence/sprint-001-oj-be-003.md`.
 - OJ-BE-003 status: Done; organizations, projects, and project-member APIs are implemented with backend RBAC and CSRF enforcement.
+- OJ-017 and OJ-FE-001 evidence: `docs/evidence/sprint-001-oj-017-oj-fe-001.md`.
+- OJ-017 and OJ-FE-001 status: Done; frontend app shell, navigation model, route map, loading, 403, 404, and generic error states are implemented.
