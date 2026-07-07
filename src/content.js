@@ -142,7 +142,7 @@ export const agents = [
 export const sprintStatus = {
   id: 'SPR-001',
   name: 'Identity, Access And Project Foundation',
-  state: 'active',
+  state: 'done',
   startedAt: '2026-07-05',
   reportCadence: 'Relatório ao fim da sprint',
 }
@@ -158,7 +158,7 @@ export const sprintRoadmap = [
   {
     id: 'SPR-001',
     title: 'Identity, Access And Project Foundation',
-    state: 'active',
+    state: 'done',
     goal: 'Entregar base de autenticação, RBAC, organizações, projetos, banco inicial e shell autenticado.',
     cards: ['OJ-DB-001', 'OJ-DB-002', 'OJ-DB-003', 'OJ-016', 'OJ-BE-002', 'OJ-AUTH-001', 'OJ-AUTH-002', 'OJ-BE-003', 'OJ-017', 'OJ-FE-001', 'OJ-FE-002', 'OJ-FE-003'],
   },
