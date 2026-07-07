@@ -2,7 +2,7 @@
 
 Owner: Mariana Costa  
 Agency: AIA - Artificial Intelligence Agency  
-Status: preparation started  
+Status: completed  
 Preparation started: 2026-07-05  
 Depends on: Sprint 000 completed and approved foundation cards
 
@@ -78,6 +78,11 @@ OJ-015 is already Done and remains evidence for the backend foundation.
 - Preparation report: `docs/sprints/sprint-001-preparation.md`.
 - Sprint 000 report: `docs/sprints/sprint-000-report.md`.
 - Backlog source: `docs/product/mvp-backlog.md`.
+
+## Completion Evidence
+
+- Sprint 001 report: `docs/sprints/sprint-001-report.md`.
+- Completion status: all selected cards are Done as of 2026-07-07.
 
 ## Execution Evidence
 
