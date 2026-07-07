@@ -1002,7 +1002,7 @@ Role: Frontend
 Owner: Lucas Ferreira  
 Assignee: Lucas Ferreira  
 Priority: P0  
-Status: Planned  
+Status: Done  
 Tags: `FRONTEND`, `AUTH`, `UI`  
 Dependencies: `OJ-AUTH-001`, `OJ-FE-001`
 
@@ -1016,6 +1016,13 @@ Acceptance criteria:
 - API errors are shown clearly.
 - Loading state prevents duplicate submit.
 - Successful login routes to the correct app context.
+
+Current execution note:
+
+- Login UI and auth states were implemented on branch `feat/OJ-FE-002-login-ui-auth-states`.
+- Evidence: `docs/evidence/sprint-001-oj-fe-002.md`.
+- Pull request: `https://github.com/editorastudiowriter/openjira-web/pull/2`.
+- Validation passed with `npm run lint` and `npm run build`.
 
 ### OJ-FE-003 - Implement organization and project selection UI
 
